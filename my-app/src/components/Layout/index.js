@@ -23,6 +23,7 @@ const Layout = ({title, descr, urlBg, colorBg}) => {
             </article>
         </div> }
     </section>
+    
     )
 }
 
