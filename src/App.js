@@ -1,10 +1,11 @@
 import Header  from "./components/Header";
 import Layout from "./components/Layout";
 import Footer from "./components/Footer";
-
+import FirstBg from './assets/bg1.jpg'
+import Thirdbg from './assets/bg2.jpg'
 
 const App = () => {
-  const styleLayout = {backgroundImage: 'bg1'};
+  
   return (
     <>
       <Header 
@@ -14,7 +15,7 @@ const App = () => {
       <Layout 
         title = "First Layout"
         descr = "Descriptions First Layout"
-        urlBg = "Firstbg"
+        urlBg = {FirstBg}
 
       />
       <Layout 
@@ -25,7 +26,7 @@ const App = () => {
       <Layout 
        title = "Third Layout"
        descr = "Descriptions Third Layout"
-       urlBg = "Thirdbg"
+       urlBg = {Thirdbg}
        
        />
       <Footer /> 

@@ -1,17 +1,15 @@
 import style from './style.module.css'
 
-import FirstBg from '../../assets/bg1.jpg'
-import Thirdbg from '../../assets/bg2.jpg'
+
 
 
 const Layout = ({title, descr, urlBg, colorBg}) => {
-    const bgRoot = (urlBg == 'Firstbg') ? {background: `url("${FirstBg}"`} : 
-    (urlBg == 'Thirdbg') ? {background: `url("${Thirdbg}"`} :
+    const bgRoot = urlBg ? {background: `url("${urlBg}"`} : 
     colorBg ?  {background: "red"} : {}
     return (
     <section class={style.root} style={bgRoot}> 
 
-       { <div class={style.wrapper}>
+       <div class={style.wrapper}>
             <article>
                 <div class={style.title}>
                     <h3> { title }</h3>
@@ -21,8 +19,9 @@ const Layout = ({title, descr, urlBg, colorBg}) => {
                     <p> { descr } </p>
                 </div>
             </article>
-        </div> }
+        </div> 
     </section>
+    
     )
 }
 
