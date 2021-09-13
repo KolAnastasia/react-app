@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import style from './style.module.css'
 
 
@@ -15,7 +16,7 @@ const Layout = ({title, descr, urlBg, colorBg, children}) => {
                     <h3> { title }</h3>
                     <span className={style.separator}></span>
                 </div>
-                <div className={`${style.desc} ${style.full}`}>
+                <div className={cn(style.desc, style.full)}>
                    {children}
                    <p>{descr}</p>
                 </div>
