@@ -13,7 +13,6 @@ import style from './style.module.css'
 
 
 const HomePage = ({onChangePage}) => {
-  const POKEMONS = PokemonsList; 
   const handleClickButton = (page) => {
       onChangePage && onChangePage(page);
   }
@@ -41,7 +40,7 @@ Each player has five cards in a hand and the aim is to capture the opponent's ca
        >
         <div className={style.flex} > 
           {
-            POKEMONS.map((item) => <PokemonCard 
+            PokemonsList.map((item) => <PokemonCard 
             key={item.id}
             name={item.name}
             img={item.img}

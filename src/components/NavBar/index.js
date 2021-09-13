@@ -13,7 +13,7 @@ const NavBar = ({onClickButton, state}) => {
                 <p className={s.brand}>
                 LOGO
                 </p>
-                <a className={cn(s.menuButton, {[s.active]: state})} onClick={handleOpenIcon}>
+                <a href="#" className={cn(s.menuButton, {[s.active]: state})} onClick={handleOpenIcon}>
                 <span />
                 </a>
             </div>
