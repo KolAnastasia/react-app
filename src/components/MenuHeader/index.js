@@ -3,7 +3,7 @@ import { useState } from "react";
 import Menu from '../Menu';
 import NavBar from '../NavBar';
 
-const MenuHeader = () => {
+const MenuHeader = ({bgActive}) => {
     const [state, setActive] = useState(false)
     const handleCnahgeIcon = () => {
         setActive(!state)
@@ -17,6 +17,7 @@ const MenuHeader = () => {
             <NavBar 
                 onClickButton = {handleCnahgeIcon}
                 state = {state}
+                bgActive={bgActive}
             />
         </>
     );

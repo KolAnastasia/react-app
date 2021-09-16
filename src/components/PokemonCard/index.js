@@ -4,11 +4,10 @@ import style from "./style.module.css";
 import backSide from '../../assets/card-back-side.jpg';
 
 
-const PokemonCard = ({name, img, id, type, values}) => {
+const PokemonCard = ({name, img, id, type, values, handleOpenPokemon, isActive}) => {
 
-    const [isActive, setActive] = useState(false)
     const handleOpen = () => {
-        setActive(!isActive)
+        handleOpenPokemon && handleOpenPokemon(id)
     }
     
     return (

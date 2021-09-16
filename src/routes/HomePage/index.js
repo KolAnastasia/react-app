@@ -6,7 +6,7 @@ import MenuHeader from "../../components/MenuHeader";
 import FirstBg from '../../assets/bg1.jpg'
 import Thirdbg from '../../assets/bg2.jpg'
 import PokemonCard from "../../components/PokemonCard";
-import PokemonsList from "../../pokemons.json"
+import POKEMONS from "../../pokemons.json"
 import style from './style.module.css'
 
 
@@ -40,14 +40,14 @@ Each player has five cards in a hand and the aim is to capture the opponent's ca
        >
         <div className={style.flex} > 
           {
-            PokemonsList.map((item) => <PokemonCard 
+            POKEMONS.map((item) => <PokemonCard 
             key={item.id}
             name={item.name}
             img={item.img}
             id={item.id} 
             type={item.type}
             values={item.values}
-            
+            isActive={item.active}
             />) 
           }
         </div>

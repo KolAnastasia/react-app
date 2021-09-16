@@ -79,6 +79,10 @@
   top: 0px;
 }
 
+.bgActive { 
+  background-color: #181d23;
+}
+
 @media only screen and (max-width: 849px) {
   #navbar {
     background: #181d23aa;
