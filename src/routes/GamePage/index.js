@@ -8,17 +8,20 @@ import POKEMONS from '../../pokemons.json';
 import { Link } from 'react-router-dom';
 
 
-const GamePage = () => {
+const GamePage = ({}) => {
 
-    const [pokemons, setPokemons] = useState(POKEMONS);
+    const [pokemons, setPokemons] = useState([...POKEMONS]);
 
     const handleOpenPokemon = (id) => {
+        console.log('card2')
         setPokemons(pokemons.map(item => {
            if(item.id === id) {
                item.active = !item.active 
            }
-
+           console.log('card2')
            return item
+
+          
         }))
     }
     return (
@@ -28,7 +31,8 @@ const GamePage = () => {
             
                 <div className={s.flex} > 
                 {
-                    POKEMONS.map((item) => <PokemonCard 
+                    pokemons.map((item) => 
+                    <PokemonCard 
                     onClick={handleOpenPokemon}
                     key={item.id}
                     name={item.name}
@@ -42,7 +46,7 @@ const GamePage = () => {
                 }
                 </div>
 
-                <Link to="/">
+                <Link to="/" className={s.btnBack}>
                     Back to Home 
                 </Link>
             </div>
