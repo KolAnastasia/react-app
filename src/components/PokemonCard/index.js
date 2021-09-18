@@ -4,10 +4,10 @@ import style from "./style.module.css";
 import backSide from '../../assets/card-back-side.jpg';
 
 
-const PokemonCard = ({name, img, id, type, values, handleOpenPokemon, isActive}) => {
+const PokemonCard = ({name, img, id, type, values, onClick, isActive}) => {
 
     const handleOpen = () => {
-        handleOpenPokemon && handleOpenPokemon(id)
+        onClick && onClick(id)
     }
     
     return (
