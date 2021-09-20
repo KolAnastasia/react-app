@@ -2,4 +2,27 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+   
+}
+.wrapper {
+    min-height: calc(100vh - 164px);
+    padding-top: 70px;
+}
+.buttonAdd {
+    padding: 24px 42px;
+    margin: 50px auto;
+    max-width: fit-content;
+    font-size: 25px;
+    color: #ffffff;
+    background-color: red;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .2s;
+    border: 1px solid red;
+}
+
+.buttonAdd:hover {
+    color: red;
+    background-color: #ffffff;
+    border: 1px solid red;
 }
