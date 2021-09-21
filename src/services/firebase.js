@@ -1,5 +1,5 @@
 import firebase from "firebase/compat/app";
-import 'firebase/compat/database'
+import 'firebase/compat/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyB-R1u4cVkyg3Oe1BbFgHPjHFG40vlegrI",
@@ -14,9 +14,40 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-export const fire = firebase; 
+class Firebase {
+  constructor() {
+
+    this.fire = firebase;
+    this.database = this.fire.database();
+  }
+
+  getPokemonsOnce = async () => {
+    return await this.database.ref('pokemons').once('value').then(snapshot => snapshot.val());
+  }
+
+  getPokemonsSoket = (cb) => {
+    this.database.ref('pokemons').on('value', (snapshot) => {
+      cb(snapshot.val())
+    })
+  }
+
+  offPokemonsSoket = () => {
+    this.database.ref('pokemons').off()
+    
+  }
+
+  postPokemon = (key, pokemon) => {
+    this.database.ref(`polemons/${key}`).set(pokemon);
+  }
+
+  addPokemon = (pokemon, cb) => {
+        const newPokemonKey = this.database.ref().child('pokemons').push().key;
+        this.database.ref('pokemons/' + newPokemonKey).set(pokemon).then(() => cb )
+  }
 
 
-export const database = firebase.database();
+}
 
-export default database;
+
+
+export default Firebase;
