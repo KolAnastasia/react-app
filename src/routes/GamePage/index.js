@@ -9,6 +9,9 @@ import { useState } from 'react/cjs/react.development';
 
 const GamePage = () => {
     const [selectedPokemons, setSelectedPokemons] = useState({});
+    const [player1Cards, setPlayer1Cards] = useState([]);
+    const [player2Cards, setPlayer2Cards] = useState([]);
+    const [player1Win, setPlayer1Win] = useState([]);
     const match = useRouteMatch();
     const handleSelectedPokemons = (key, pokemon) => {
         setSelectedPokemons(prevState => {
@@ -25,10 +28,20 @@ const GamePage = () => {
         })
     }
 
+    const handleGameFinish = (player1Cards, player2Cards, isWin)=>{
+        setPlayer1Cards(player1Cards);
+        setPlayer2Cards(player2Cards);
+        setPlayer1Win(isWin) ;
+    }
+
     return (
         <PokemonContext.Provider value={{
-            pokemon: selectedPokemons,
-            onSelectedPokemons: handleSelectedPokemons
+            pokemons: selectedPokemons,
+            onSelectedPokemons: handleSelectedPokemons,
+            player1Cards: player1Cards,
+            player2Cards: player2Cards,
+            player1Win: player1Win,
+            onGameFinish: handleGameFinish
         }}>
         <Switch>
             <Route path={`${match.path}/`} exact component={StartPage} />
