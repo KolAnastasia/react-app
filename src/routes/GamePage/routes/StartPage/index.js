@@ -29,6 +29,7 @@ const StartPage = ({}) => {
 
 
     const handleChangeSelected = (key) => {
+        
         const pokemon = {...pokemons[key]};
         pokemonContext.onSelectedPokemons(key, pokemon);
 
@@ -55,7 +56,7 @@ const StartPage = ({}) => {
             <div className={s.wrapper}>
                 <div className={s.buttonAdd} 
                     onClick={handleStartGame}
-                    disabled={Object.keys(pokemonContext.pokemon).length < 5}
+                    disabled={Object.keys(pokemonContext.pokemons).length < 5}
                 > Start Game </div>
                 <div className={s.flex} > 
                 {
@@ -63,7 +64,7 @@ const StartPage = ({}) => {
                    Object.entries(pokemons).map(([key, {name, img, id, type, values, selected, className, minimize}]) => 
                     <PokemonCard 
                     onClick={ () => {
-                        if (Object.keys(pokemonContext.pokemon).length < 5 || selected) {
+                        if (Object.keys(pokemonContext.pokemons).length < 5 || selected) {
                             handleChangeSelected(key)
                         }
 
